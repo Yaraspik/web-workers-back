@@ -9,7 +9,7 @@ import slow from 'koa-slow';
 import NewsManager from './newsCreator.js';
 // import randomInterval from './interval.js';
 
-const port = process.env.PORT || 3000;
+const port = 3000;
 const app = new Koa();
 const router = new Router();
 
@@ -20,12 +20,12 @@ app
     urlencoded: true,
     miltipart: true,
     json: true,
-  }))
-  .use(
-    slow({
-      delay: 3000,
-    }),
-  );
+  }));
+  // .use(
+  //   slow({
+  //     delay: 3000,
+  //   }),
+  // );
 
 app.use(async (ctx, next) => {
   const origin = ctx.request.get('Origin');
