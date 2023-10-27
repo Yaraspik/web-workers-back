@@ -21,6 +21,11 @@ app
     miltipart: true,
     json: true,
   }));
+  // .use(
+  //   slow({
+  //     delay: 3000,
+  //   }),
+  // );
 
 app.use(async (ctx, next) => {
   const origin = ctx.request.get('Origin');
@@ -71,12 +76,6 @@ router
   });
 
 app.use(router.routes()).use(router.allowedMethods());
-
-app.use(
-  slow({
-    delay: 3000,
-  }),
-);
 
 const bootstrap = async () => {
   try {
