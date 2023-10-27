@@ -3,7 +3,7 @@ import koaBody from 'koa-body';
 import Router from '@koa/router';
 import cors from '@koa/cors';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import slow from 'koa-slow';
+// import slow from 'koa-slow';
 
 // eslint-disable-next-line import/extensions
 import NewsManager from './newsCreator.js';
@@ -56,11 +56,11 @@ app.use(async (ctx, next) => {
   return false;
 });
 
-app.use(
-  slow({
-    delay: 3000,
-  }),
-);
+// app.use(
+//   slow({
+//     delay: 3000,
+//   }),
+// );
 
 router
   .get('unreadable news', '/news', (ctx) => {
