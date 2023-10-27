@@ -17,9 +17,7 @@ export default class NewsManager {
   static createNews() {
     return {
       id: crypto.randomUUID(),
-      from: faker.internet.email(),
-      subject: `Hello from ${faker.internet.userName()}!`,
-      body: faker.lorem.paragraph(),
+      description: faker.lorem.paragraph(),
       received: new Date(),
     };
   }

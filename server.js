@@ -21,11 +21,6 @@ app
     miltipart: true,
     json: true,
   }));
-  // .use(
-  //   slow({
-  //     delay: 3000,
-  //   }),
-  // );
 
 app.use(async (ctx, next) => {
   const origin = ctx.request.get('Origin');
@@ -60,6 +55,12 @@ app.use(async (ctx, next) => {
 
   return false;
 });
+
+app.use(
+  slow({
+    delay: 3000,
+  }),
+);
 
 router
   .get('unreadable news', '/news', (ctx) => {
