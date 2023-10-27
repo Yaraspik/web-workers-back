@@ -20,12 +20,12 @@ app
     urlencoded: true,
     miltipart: true,
     json: true,
-  }));
-  // .use(
-  //   slow({
-  //     delay: 3000,
-  //   }),
-  // );
+  }))
+  .use(
+    slow({
+      delay: 3000,
+    }),
+  );
 
 app.use(async (ctx, next) => {
   const origin = ctx.request.get('Origin');
